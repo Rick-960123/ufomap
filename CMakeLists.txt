@@ -116,68 +116,6 @@ target_compile_options(Map
 
 # add_subdirectory(src)
 
-add_executable(dufomap src/dufomap.cpp)
-set_target_properties(dufomap
-	PROPERTIES
-	VERSION ${PROJECT_VERSION}
-	SOVERSION ${PROJECT_VERSION_MAJOR}
-	CXX_STANDARD 20
-	CXX_STANDARD_REQUIRED YES
-	CXX_EXTENSIONS NO
-)
-target_link_libraries(dufomap PRIVATE UFO::Map)
-target_compile_features(dufomap
-	PUBLIC
-	cxx_std_20
-)
-target_compile_options(dufomap
-	PRIVATE
-	# -Wall
-	# -Werror
-	# -Wextra
-	# -Wpedantic
-	# -Wunreachable-code
-	# -Wconversion
-	# -Wcast-align
-	# -Wunused
-	# -Wno-unused-parameter
-	# -Wold-style-cast
-	# -Wpointer-arith
-	# -Wcast-qual
-	# -Wno-missing-braces
-	# -Wdouble-promotion
-
-	# -Wshadow
-	# -march=native
-)
-
-add_executable(fix_pcd src/fix_pcd.cpp)
-set_target_properties(fix_pcd
-	PROPERTIES
-	VERSION ${PROJECT_VERSION}
-	SOVERSION ${PROJECT_VERSION_MAJOR}
-	CXX_STANDARD 20
-	CXX_STANDARD_REQUIRED YES
-	CXX_EXTENSIONS NO
-)
-target_link_libraries(fix_pcd PRIVATE UFO::Map)
-target_compile_features(fix_pcd
-	PUBLIC
-	cxx_std_20
-)
-
-IF(TBB_FOUND)
-	message(STATUS "TBB found, enabling parallel execution")
-	target_compile_definitions(fix_pcd
-		INTERFACE
-		UFO_PARALLEL=1
-	)
-	target_link_libraries(fix_pcd
-		PUBLIC
-		TBB::tbb
-	)
-ENDIF()
-
 set(UFOMAP_BMI2 FALSE CACHE BOOL "Enable/disable BMI2 instructions")
 
 if(DEFINED ENV{UFOMAP_BMI2})
