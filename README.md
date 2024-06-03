@@ -10,6 +10,7 @@ Using UFOMap you will be able to create 3D volumetric maps, containing unknown/f
 ![Real-time Volumetric Mapping](https://user-images.githubusercontent.com/6604166/111788476-6c7a8800-88c0-11eb-9592-86609b9eb57c.png)
    Colored UFOMap constructed in real-time (2 Hz) at 2 mm voxel size.
 
+
 ## Table of Contents
 Please see the [Wiki](https://github.com/UnknownFreeOccupied/ufomap/wiki) for how to install and use UFOMap.
 1. [Setup](https://github.com/UnknownFreeOccupied/ufomap/wiki/Setup)
